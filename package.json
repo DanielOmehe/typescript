@@ -1,0 +1,14 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": { 
+    "build": "tsc && webpack app/app.js -o app/app.bundle.js --mode=production",  "build:dev": "tsc && webpack app/app.js -o app/app.bundle.js --mode=development",  
+    "start": "node server.js",
+    "dev": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
