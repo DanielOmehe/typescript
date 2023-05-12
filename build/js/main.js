@@ -73,10 +73,64 @@ console.log(greetArtiste(jon));
 //Enums
 var Grade;
 (function (Grade) {
-    Grade[Grade["U"] = 3] = "U";
-    Grade[Grade["D"] = 4] = "D";
-    Grade[Grade["C"] = 5] = "C";
-    Grade[Grade["B"] = 6] = "B";
-    Grade[Grade["A"] = 7] = "A";
+    Grade[Grade["U"] = 6] = "U";
+    Grade[Grade["D"] = 7] = "D";
+    Grade[Grade["C"] = 8] = "C";
+    Grade[Grade["B"] = 9] = "B";
+    Grade[Grade["A"] = 10] = "A";
 })(Grade || (Grade = {}));
 console.log(Grade.A);
+//literal types
+let username;
+username = "Amy";
+//functions
+const add = (a, b) => {
+    return a + b;
+};
+console.log(add(1, 5));
+const logMsg = (message) => {
+    console.log(message);
+};
+logMsg("hello");
+logMsg(true);
+logMsg(add(1, 4));
+let subtract = function (a, b) {
+    return b - a;
+};
+console.log(subtract(10, 7));
+// interface mathFunc {
+//   (x: number, y: number): number;
+// }
+let multiply = function (x, y) {
+    return x * y;
+};
+console.log(multiply(10, 7));
+const addAll = (a, b, c, d) => {
+    return a + b + c + d;
+};
+//rest parameter
+const total = (a, ...nums) => {
+    return nums.reduce((sum, num) => sum + num) + a;
+};
+console.clear();
+const createError = (message) => {
+    throw new Error(message);
+};
+logMsg(total(45, 10, 45, 67, 90));
+logMsg(createError('three'));
+const infinite = () => {
+    let i = 1;
+    while (true) {
+        if (i >= 100)
+            break;
+        i++;
+    }
+};
+const numberOrString = (value) => {
+    if (typeof value === 'string')
+        return 'string';
+    if (typeof value === 'number')
+        return 'number';
+    return createError('This should never happen');
+};
+console.log(numberOrString('45'));

@@ -87,7 +87,7 @@ interface Artiste {
 }
 
 let jon: Artiste = {
-//   name: "Jon bellion",
+  //   name: "Jon bellion",
   active: false,
   albums: ["All time low", 80, "hello"],
 };
@@ -103,7 +103,7 @@ const greetArtiste = (artiste: Artiste) => {
       "Hello " + artiste.name + " i love your song " + artiste.albums.join(", ")
     );
   }
-  return "Hello!"
+  return "Hello!";
 };
 
 console.log(greetArtiste(nick));
@@ -111,13 +111,88 @@ console.log(greetArtiste(jon));
 
 //Enums
 
-enum Grade{
-    U = 3,
-    D,
-    C,
-    B,
-    A
+enum Grade {
+  U = 6,
+  D,
+  C,
+  B,
+  A,
 }
 
 console.log(Grade.A);
 
+type StringOrNumber = string | number;
+
+//literal types
+
+let username: "Daniel" | "John" | "Amy";
+
+username = "Amy";
+
+//functions
+
+const add = (a: number, b: number) => {
+  return a + b;
+};
+
+console.log(add(1, 5));
+
+const logMsg = (message: any): void => {
+  console.log(message);
+};
+
+logMsg("hello");
+logMsg(true);
+logMsg(add(1, 4));
+
+let subtract = function (a: number, b: number): number {
+  return b - a;
+};
+
+console.log(subtract(10, 7));
+
+type mathFunc = (x: number, y: number) => number;
+// interface mathFunc {
+//   (x: number, y: number): number;
+// }
+
+let multiply: mathFunc = function (x, y) {
+  return x * y;
+};
+
+console.log(multiply(10, 7));
+
+const addAll = (a: number, b: number, c: number, d: number): number => {
+  return a + b + c + d;
+}
+
+
+//rest parameter
+
+const total = (a: number, ...nums: number[]): number =>{
+  return nums.reduce((sum, num) => sum + num) + a
+}
+
+console.clear();
+
+const createError = (message: string): never => {
+  throw new Error(message)
+}
+logMsg(total(45, 10, 45, 67, 90));
+logMsg(createError('three'));
+
+const infinite = ()=>{
+  let i: number = 1;
+  while(true){
+    if(i >= 100) break
+    i++
+  }
+}
+
+const numberOrString = (value: number | string): string => {
+  if(typeof value === 'string' ) return 'string'
+  if(typeof value === 'number' ) return 'number'
+  return createError('This should never happen')
+}
+
+console.log(numberOrString('45'));
