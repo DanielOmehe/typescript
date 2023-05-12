@@ -196,3 +196,40 @@ const numberOrString = (value: number | string): string => {
 }
 
 console.log(numberOrString('45'));
+
+
+//type assertion / casting
+
+type One = string
+type Two = string | number
+type Three = 'hello'
+
+let an: One = 'hello';
+let bn = an as Two
+let cn =  an as Three
+
+let dn = <One>'cool'
+
+let en = <string | number>'planet'
+
+const addOrConcat = (a: number, b: number, c: 'add' | 'concat'): number | string => {
+  if(c === 'add') return a + b
+  return '' + a + b
+}
+
+let myVal: string = addOrConcat(2,3, 'concat') as string
+let numVal: number = addOrConcat(2,3, 'add') as number
+
+//The DOM 
+const img = document.querySelector('img') as HTMLImageElement
+const myImg = document.getElementById('#img') as HTMLImageElement
+const newImg = <HTMLImageElement>document.getElementById('#img')
+
+img.src
+myImg.src
+newImg.src
+
+newImg.addEventListener('click', (e)=>{
+  console.log(e.target);
+  
+})

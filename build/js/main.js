@@ -134,3 +134,25 @@ const numberOrString = (value) => {
     return createError('This should never happen');
 };
 console.log(numberOrString('45'));
+let an = 'hello';
+let bn = an;
+let cn = an;
+let dn = 'cool';
+let en = 'planet';
+const addOrConcat = (a, b, c) => {
+    if (c === 'add')
+        return a + b;
+    return '' + a + b;
+};
+let myVal = addOrConcat(2, 3, 'concat');
+let numVal = addOrConcat(2, 3, 'add');
+//The DOM 
+const img = document.querySelector('img');
+const myImg = document.getElementById('#img');
+const newImg = document.getElementById('#img');
+img.src;
+myImg.src;
+newImg.src;
+newImg.addEventListener('click', (e) => {
+    console.log(e.target);
+});
